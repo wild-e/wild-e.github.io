@@ -11,14 +11,14 @@
         font-family: 'IBM Plex Mono', monospace;
     }
     h1 {
-        @apply text-2xl font-bold text-greenery;
+        @apply text-6xl md:text-2xl;
         font-family: 'Roboto', sans-serif;
     }
     h2 {
-        @apply text-xl font-semibold text-greenery;
+        @apply text-2xl md:text-xl font-semibold;
         font-family: 'Roboto', sans-serif;
     }
-    h3 {
+    h3, h4 {
         font-family: 'Roboto', sans-serif;
     }
 }

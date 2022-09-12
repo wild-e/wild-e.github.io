@@ -1,6 +1,7 @@
+/* eslint-disable vue/component-definition-name-casing */
 import Vue from 'vue'
 import { library, config } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon, FontAwesomeLayers  } from '@fortawesome/vue-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab} from '@fortawesome/free-brands-svg-icons'
 
@@ -12,5 +13,6 @@ config.autoAddCss = false
 library.add(fas, fab)
 
 // Register the component globally
-// eslint-disable-next-line vue/component-definition-name-casing
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-layers', FontAwesomeLayers)
