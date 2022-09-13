@@ -8,9 +8,6 @@
 
         <nav class="space-x-4 flex items-end">
             <NuxtLink to="/" class="link-turquoise">
-                Home
-            </NuxtLink>
-            <NuxtLink to="/a-propos" class="link-turquoise">
                 A propos
             </NuxtLink>
             <NuxtLink to="/blog" class="link-turquoise">
