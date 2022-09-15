@@ -2,7 +2,7 @@
 <template>
   <div class="relative">
     <TheHeader />
-    <Nuxt class="pb-20 min-h-screen"/>
+    <Nuxt class="md::pb-20 min-h-screen"/>
     <TheFooter />
   </div>
 </template>

@@ -25,7 +25,7 @@ export default {
         styling: {
             type: String,
             required: false,
-            default: "text-ghost text-6xl"
+            default: "text-ghost lg:text-6xl md:text-4xl text-xl"
         }
     },
     methods: {
