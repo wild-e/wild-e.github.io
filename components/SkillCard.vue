@@ -1,28 +1,51 @@
 <template>
-    <div class="bg-dark-soft shadow-lg rounded-md h-32 w-32 select-none flex flex-col space-y-5 items-center justify-center transform transition ease-in-out duration-700 hover:scale-110">
-        <p 
-            class="uppercase text-center font-roboto font-bold text-ghost tracking-widest"
-        >
-            {{ name }}
-        </p>
-        <div class="flex space-x-2">
-            <font-awesome-icon v-for="star, index in stars" :key="index" icon="fa-solid fa-star" beat style="--fa-animation-duration: 5s;" class="text-orange"/>
+    <div class="w-full border border-greyish rounded-xl p-5">
+        <div class="flex flex-col space-y-4 justify-center items-center">
+            <font-awesome-layers class="fa-4x" fixed-width>
+                <font-awesome-icon icon="fa-solid fa-circle" />
+                <font-awesome-icon :icon="`fa-solid ${skill.icon}`" transform="shrink-6" class="text-dark" />
+            </font-awesome-layers>
+            <h2 class="text-center text-orange">
+                {{ skill.title }}
+            </h2>
+            <div class="flex flex-col space-y-1 pt-4">
+                <p 
+                    v-for="type, index in skill.list"
+                    :key="index"
+                    class="uppercase text-center font-roboto text-ghost tracking-widest"
+                    :class="fontWeights[index]"
+                >
+                    {{ type }}
+                </p>
+            </div>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    name: "SkillCard",
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+    name: 'SkillCard',
     props: {
-        name: {
-            type: String,
+        skill: {
+            type: Object,
             required: true
         },
-        stars: {
-            type: Number,
-            required: true
+    },
+    data() {
+        return {
+            fontWeights: [
+                'font-black',
+                'font-extrabold',
+                'font-bold',
+                'font-semibold',
+                'font-medium',
+                'font-normal',
+                'font-light',
+                'font-extralight',
+                'font-thin',
+            ]
         }
-    }
-}
+    },
+})
 </script>

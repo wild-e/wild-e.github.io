@@ -1,46 +1,48 @@
 <template>
     <div 
-        class="h-64 w-96 flex items-center px-5 rounded-lg shadow-lg transform transition ease-in-out duration-700 hover:scale-110"
-        :class="color && `bg-${color}`"
-        @mouseenter="hover = true"
-        @mouseleave="hover = false"
+        class="flex items-center justify-evenly h-full py-4 px-3 md:p-5 rounded-lg shadow-lg transform transition ease-in-out duration-700 hover:scale-105"
+        :style="`background-color: ${color}`"
     >
-        <Transition mode="out-in">
-            <div 
-                v-if="hover"
-                :key="2"
-                class="justify-evenly flex flex-col h-full text-white"
-            >
-                <img
-                    class="w-1/2 mx-auto font-bold"
-                    :src="getUrl()" 
-                    :alt="`Projet ${name}`" 
-                >
-                <p class="text-sm">
-                    {{ description }}
-                </p>
-                <a 
-                    :href="link"
-                    class="bg-white p-2 shadow-lg font-bold rounded-lg text-center border-b-2 border-l-2 border-greyish hover:text-greyish"
-                    :class="color && `text-${color}`"
-                    target="_blank"
-                >
-                    Voir le projet
-                </a>
-                <div class="border-t pt-2 text-xs text-left">
-                    <p class="font-black">Stack technique :</p>
-                    <p>
-                        {{ technologies }}
-                    </p>
-                </div>
-            </div>
-            <img 
-                v-else
-                :key="1"
+        <div 
+            class="justify-evenly flex flex-col h-full text-white space-y-4"
+        >
+            <img
+                class="w-1/2 mx-auto font-bold"
                 :src="getUrl()" 
                 :alt="`Projet ${name}`" 
             >
-        </Transition>
+            <p class="text-sm">
+                {{ description }}
+            </p>
+            <details class="cursor-pointer inline">
+                <summary 
+                    class="text-sm md:text-base list-none bg-white p-2 shadow-lg font-bold rounded-lg text-center border-b-2 border-l-2 border-greyish hover:text-greyish"
+                    :style="`color: ${color}`"
+                >
+                    En savoir plus sur mon travail
+                    <font-awesome-icon icon="fa-solid fa-magnifying-glass-plus" />
+                </summary>
+                <p 
+                    class="text-sm mt-5"
+                >
+                    {{ details }}
+                </p>
+            </details>
+            <a 
+                :href="link"
+                class="bg-white p-2 shadow-lg font-bold rounded-lg text-center border-b-2 border-l-2 border-greyish hover:text-greyish"
+                :style="`color: ${color}`"
+                target="_blank"
+            >
+                Voir le projet
+            </a>
+            <div class="border-t pt-2 text-xs text-left">
+                <p class="font-black">Stack technique :</p>
+                <p>
+                    {{ technologies }}
+                </p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -68,6 +70,10 @@ export default {
             type: String,
             required: true
         },
+        details: {
+            type: String,
+            required: true,
+        },
         color: {
             type: String,
             required: true,
@@ -87,14 +93,11 @@ export default {
 </script>
 
 <style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
+    /* details[open] summary ~ * {
+    animation: sweep 0.5s ease-in-out;
+    }
+    @keyframes sweep {
+        0%    {opacity: 0; margin-top: -10px}
+        100%  {opacity: 1; margin-top: 0px}
+    } */
 </style>
