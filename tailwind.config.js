@@ -6,7 +6,6 @@ module.exports = {
                 'greenery': '#0dbc79',
                 'greyish': '#919174',
                 'orange': '#ffa500',
-                'tualu-blue': '#1e83a3',
                 'turquoise': {
                     DEFAULT: '#11a8cd',
                     soft: '#55D2F1',
